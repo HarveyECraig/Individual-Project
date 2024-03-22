@@ -16,6 +16,7 @@ void setup() {
 }
 void draw() {
   background(white);
+  //rect(0, 500, 900, 300);
   if (isPressed == true) {
     planet(mouseX, mouseY);
   } else {
@@ -35,4 +36,15 @@ void planet(int x, int y) {
     permx = x;
     permy = y;
   }
+ if (x-15 <= 0 || x+15 >= width) {
+    fill(red);
+  } else {
+    fill(green);
+  }
+  if (y-15 <= 0 || y+15 >= height) {
+    fill(red);
+  }
+}
+void floor(int h, int y){
+  rect(0, y, 900, h);
 }
