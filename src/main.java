@@ -1,6 +1,8 @@
 boolean isPressed;
-int permx, permy;
+float permx, permy;
 int white, black, red, blue, green, yellow;
+float speed = 0;
+float gravity = 0.1;
 void setup() {
   white = 255;
   black = 0;
@@ -13,22 +15,27 @@ void setup() {
   permy = height/2;
   size(900, 800);
   
+  
 }
 void draw() {
   background(white);
+  stroke(0);
   //rect(0, 500, 900, 300);
   if (isPressed == true) {
     planet(mouseX, mouseY);
   } else {
     planet(permx, permy);
   }
+ 
 }
 
-void planet(int x, int y) {
+void planet(float x, float y) {
 
 
   ellipse(x, y, 30, 30);
   fill(green);
+   y = y + speed;
+  speed = speed + gravity;
   if (mousePressed == true && mouseX < x+50 && mouseX > x-50 && mouseY < y + 50 && mouseY > y -50) {
     isPressed = true;
   } else {
@@ -43,6 +50,10 @@ void planet(int x, int y) {
   }
   if (y-15 <= 0 || y+15 >= height) {
     fill(red);
+  }
+  if (y > height) {
+    speed = speed * -0.95;
+    y = height;
   }
 }
 void floor(int h, int y){
