@@ -53,8 +53,12 @@ void planet(float x, float y) {
   }
   if (y > height) {
     speed = speed * -0.95;
+  //  if (abs(speed) < 3){
+  //    speed = 0;
+  //  }
     y = height;
   }
+  println("speed:" + speed);
 }
 void floor(int h, int y){
   rect(0, y, 900, h);
