@@ -23,10 +23,14 @@ class Player {
     xvel = 5;
   } else if(key == 'a'){
     xvel = -5;
-    key = 0;
- 
-  println(key);
-}
+} 
+  if(keyPressed == false){
+    xvel = 0;
+  }
+
+//System.out.println(xvel);
+  System.out.println(key);
+  
   }
 
   // Function to display the player
@@ -45,11 +49,9 @@ class Player {
     if (mousePressed && isMouseNear()) {
       speed = 0;
     }
-    
+
   }
-//void keyReleased(){
-//  key = 0;
-//}
+
   // Function to handle bouncing
   void checkEdges() {
     if (x - 15 <= 0 || x + 15 >= width || y - 15 <= 0 || y + 15 >= height) {
@@ -60,7 +62,9 @@ class Player {
       speed *= -0.8;
     }
   }
+  
 }
+
 
 Player player; // Declare an instance of the player class
 
