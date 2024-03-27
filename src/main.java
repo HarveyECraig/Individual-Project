@@ -41,6 +41,3 @@ void keyPressed() {
   }
 }
 
-void floor(int h, int y) {
-  rect(0, y, 900, h);
-}
