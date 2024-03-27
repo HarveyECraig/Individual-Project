@@ -1,4 +1,5 @@
 boolean isPressed;
+boolean started = false;
 float permx, permy;
 int white, black, red, blue, green, yellow;
 float speed = 0;
@@ -16,21 +17,30 @@ void setup() {
   size(900, 800);
   size(900, 800);
   player = new Player(width / 2, height / 2, 0.1); // Initialize the player
-  
-  
 }
 void draw() {
   background(white);
   stroke(0);
- 
-  
-  player.update();
-  player.checkEdges();
-  player.interact();
-  player.display();
- 
+
+  textAlign(CENTER);
+  if (started) {
+    player.update();
+    player.checkEdges();
+    player.interact();
+    player.display();
+  } else {
+    text("PRESS 'RETURN' TO BEGIN", 100, 50);
+    fill(black);
+  }
 }
 
-void floor(int h, int y){
+
+void keyPressed() {
+  if (keyCode == ENTER) {
+    started = true;
+  }
+}
+
+void floor(int h, int y) {
   rect(0, y, 900, h);
 }
