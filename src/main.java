@@ -16,7 +16,7 @@ void setup() {
   permy = height/2;
   size(900, 800);
   size(900, 800);
-  player = new Player(width / 2, height / 2, 0.1); // Initialize the player
+  player = new Player(width / 2, height / 2, 0.1, 0.5); // Initialize the player
 }
 void draw() {
   background(white);
