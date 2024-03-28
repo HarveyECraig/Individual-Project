@@ -3,14 +3,17 @@ class Player {
   float speed; // Vertical speed of the player
   float gravity; // Gravity affecting the player
   float xvel;
-  boolean jump = false;
+  boolean isJumping;
+  float jumpStrength;
+
 
   // Constructor
-  Player(float x, float y, float gravity) {
+  Player(float x, float y, float gravity, float jumpStrength) {
     this.x = x;
     this.y = y;
     speed = 0;
     this.gravity = gravity;
+    this.jumpStrength = jumpStrength;
   }
 
   // Function to update the position of the player
@@ -19,17 +22,28 @@ class Player {
     speed += gravity;
     x += xvel;
     xvel = 0;
+  
+    if (isJumping){
+      speed -= jumpStrength;
+      isJumping = false;
+    }
+    
     if (key == 'd') {
       xvel = 5;
     } else if (key == 'a') {
       xvel = -5;
+    } else if (key == 'w' && !isJumping) {     
+      isJumping = true;
     }
- 
-    if (keyPressed == false) {
 
+    if (keyPressed == false) {
+      isJumping = false;
       xvel = 0;
     }
-
+//if (speed < 0.4 && speed > -0.4) {
+//    speed = 0;
+//    y = 800;
+//  }
     //System.out.println(xvel);
     System.out.println(key);
   }
@@ -40,7 +54,7 @@ class Player {
     ellipse(x, y, 30, 30);
     fill(green);
   }
-  // Need to change isMouseNear & Interact to use WASD instead of mouse
+
   // Function to check if the mouse is near the player
   boolean isMouseNear() {
     return mouseX < x + 50 && mouseX > x - 50 && mouseY < y + 50 && mouseY > y - 50;
@@ -52,6 +66,8 @@ class Player {
       speed = 0;
     }
   }
+   
+  
 
   // Function to handle bouncing
   void checkEdges() {
@@ -60,8 +76,9 @@ class Player {
     }
     if (y > height) {
       y = height;
-      speed *= -0.8;
     }
+    
+    System.out.println(speed);
   }
 }
 
