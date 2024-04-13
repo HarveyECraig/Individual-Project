@@ -15,7 +15,6 @@ void setup() {
   permx = width/2;
   permy = height/2;
   size(900, 800);
-  size(900, 800);
   player = new Player(width / 2, height / 2, 0.1, 0.25); // Initialize the player
   floor = new Floor(50, 300, 50)
 void draw() {
