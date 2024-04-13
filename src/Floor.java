@@ -11,5 +11,5 @@ class Floor{
     fill(75);
      rect(x, y, 110, h);
   }
-  
+  Floor floor;
 }
