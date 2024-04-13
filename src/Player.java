@@ -54,21 +54,6 @@ class Player {
     ellipse(x, y, 30, 30);
     fill(green);
   }
-
-  // Function to check if the mouse is near the player
-  boolean isMouseNear() {
-    return mouseX < x + 50 && mouseX > x - 50 && mouseY < y + 50 && mouseY > y - 50;
-  }
-
-  // Function to handle interactions with the player
-  void interact() {
-    if (mousePressed && isMouseNear()) {
-      speed = 0;
-    }
-  }
-   
-  
-
   // Function to handle bouncing
   void checkEdges() {
     if (x - 15 <= 0 || x + 15 >= width || y - 15 <= 0 || y + 15 >= height) {
