@@ -25,7 +25,6 @@ void draw() {
   if (started) {
     player.update();
     player.checkEdges();
-    player.interact();
     player.display();
     floor.display();
   } else {
