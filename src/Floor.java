@@ -1,7 +1,7 @@
 class Floor{
   int x = 300, y = 300, h = 50;
   
-  Floor(int x, int y, int w, int h){
+  Floor(int x, int y, int h){
     this.x = x;
     this.y = y;
     this.h = h;
