@@ -17,7 +17,7 @@ void setup() {
   size(900, 800);
   size(900, 800);
   player = new Player(width / 2, height / 2, 0.1, 0.25); // Initialize the player
-}
+  floor = new Floor(50, 300, 50)
 void draw() {
   background(white);
   stroke(0);
@@ -28,6 +28,7 @@ void draw() {
     player.checkEdges();
     player.interact();
     player.display();
+    floor.display();
   } else {
     text("PRESS 'RETURN' TO BEGIN", 100, 50);
     fill(black);
