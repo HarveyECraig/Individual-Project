@@ -11,8 +11,6 @@ class Floor {
     stroke(100);
     rect(x, y, 900, h);
   }
-//  int findPos {
-  
-//}
+  //  int findPos {
+  //}
 }
-Floor floor;
