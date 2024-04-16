@@ -24,9 +24,9 @@ class Player {
       xvel = 5;
     } else if (key == 'a') {
       xvel = -5;
-    } else if (key == 'w'){
-      for (int i = -1; i < 0; i = i+1){
-         speed -= 0.5;
+    } else if (key == 'w') {
+      for (int i = -1; i < 0; i = i+1) {
+        speed -= 0.5;
       }
     }
 
@@ -64,13 +64,13 @@ class Player {
       speed *= -0.8;
     }
     if (y > height) {
-     if(speed > 0){
-      y = height;
-      speed *= -0.8;
-     } else if (speed < 0){
-       y = height;
-       speed -= 10;
-     }
+      if (speed > 0) {
+        y = height;
+        speed *= -0.8;
+      } else if (speed < 0) {
+        y = height;
+        speed -= 10;
+      }
     }
   }
   //boolean intersect (Floor f){
@@ -80,4 +80,4 @@ class Player {
 }
 
 
-Player player; // Declare an instance of the player class
+
